@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-  get 'pets/edit', to: 'pets#edit'
+
+  ### pets routes
+  get 'pets/:id/edit', to: 'pets#edit'
   get 'pets', to: 'pets#index'
   get 'pets/new', to: 'pets#new'
-  get 'pets/:id', to: 'pets#show'
-  get 'owners/edit', to: 'owners#edit'
+  get 'pets/:id', to: 'pets#show', as: 'pet'
+
+
+  #### owners routes
+  get 'owners/:id/edit', to: 'owners#edit'
   get 'owners', to: 'owners#index'
   get 'owners/new', to: 'owners#new'
-  get 'owners/:id', to: 'owners#show'
+  get 'owners/:id', to: 'owners#show', as: 'owner'
+  patch 'owners/:id', to:'owners#update'
+  post 'owners', to:'owners#create'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

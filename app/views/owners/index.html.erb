@@ -1,4 +1,4 @@
 <h1>Owners Index</h1>
 <%@owners.each do |owner|%>
-<%= owner.first_name %>
+<%= link_to owner.first_name, owner %>
 <%end%>

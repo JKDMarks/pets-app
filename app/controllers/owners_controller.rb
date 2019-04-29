@@ -6,6 +6,7 @@ class OwnersController < ApplicationController
   def update
     @owner = Owner.find(params[:id])
     @owner.update(owner_params)
+    redirect_to @owner
   end
 
   def index

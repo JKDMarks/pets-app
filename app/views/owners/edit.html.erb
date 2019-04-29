@@ -1,2 +1,10 @@
-<h1>Owners#edit</h1>
-<p>Find me in app/views/owners/edit.html.erb</p>
+<h1>Editing <%=@owner.first_name%></h1>
+<%= form_for @owner do |f|%>
+  <p><%= f.label "first_name" %>
+  <%= f.text_field :first_name %></p>
+  <p><%= f.label "last_name" %>
+  <%= f.text_field :last_name %></p>
+  <p><%= f.label "age" %>
+  <%= f.number_field :age %></p>
+  <%= f.submit %>
+<%end%>

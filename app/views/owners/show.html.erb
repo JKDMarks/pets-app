@@ -1,6 +1,6 @@
-<%= @owner.first_name %>
-<%= @owner.last_name %> <br>
+<h1><%= @owner.first_name %>
+<%= @owner.last_name %></h1>
 <% @pets.each do |pet| %>
-<%= pet.name %>
-<%= pet.species %> <br>
+  <%= link_to pet.name, pet %>
+  <%= pet.species %> <br>
 <% end %>
