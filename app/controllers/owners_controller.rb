@@ -5,8 +5,15 @@ class OwnersController < ApplicationController
 
   def update
     @owner = Owner.find(params[:id])
-    @owner.update(owner_params)
-    redirect_to @owner
+    @owner.assign_attributes(owner_params)
+    if @owner.valid?
+      @owner.save
+      flash[:notice] = "Owner successfully edited"
+      redirect_to @owner
+    else
+      flash[:notice] = @owner.errors.full_messages
+      render :edit
+    end
   end
 
   def index
@@ -18,8 +25,15 @@ class OwnersController < ApplicationController
   end
 
   def create
-    @owner = Owner.create(owner_params)
-    redirect_to @owner
+    @owner = Owner.new(owner_params)
+    if @owner.valid?
+      @owner.save
+      flash[:notice] = "Owner successfully created"
+      redirect_to @owner
+    else
+      flash[:notice] = @owner.errors.full_messages
+      render :new
+    end
   end
 
   def show
