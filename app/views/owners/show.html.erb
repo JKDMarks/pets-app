@@ -1,2 +1,6 @@
-<h1>Owners#show</h1>
-<p>Find me in app/views/owners/show.html.erb</p>
+<%= @owner.first_name %>
+<%= @owner.last_name %> <br>
+<% @pets.each do |pet| %>
+<%= pet.name %>
+<%= pet.species %> <br>
+<% end %>
