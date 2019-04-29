@@ -1,11 +1,13 @@
 class PetsController < ApplicationController
   def edit
     @pet = Pet.find(params[:id])
+    @owners = Owner.all
   end
 
   def update
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
+    redirect_to @pet
   end
 
   def index
@@ -14,6 +16,7 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @owners = Owner.all
   end
 
   def create

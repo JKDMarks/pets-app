@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'pets', to: 'pets#index'
   get 'pets/new', to: 'pets#new'
   get 'pets/:id', to: 'pets#show', as: 'pet'
-
+  patch 'pets/:id', to:'pets#update'
+  post 'pets', to:'pets#create'
 
   #### owners routes
   get 'owners/:id/edit', to: 'owners#edit'
