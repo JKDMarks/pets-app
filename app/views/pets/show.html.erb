@@ -2,3 +2,5 @@
 
 <p>Species: <%= @pet.species %></p>
 <p>Owner: <%= @pet.owner.first_name %></p>
+
+<%= button_to "Delete Pet", @pet, method: :delete%>

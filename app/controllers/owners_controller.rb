@@ -41,6 +41,12 @@ class OwnersController < ApplicationController
     @pets = @owner.pets
   end
 
+  def destroy
+    @owner = Owner.find(params[:id])
+    @owner.destroy
+    redirect_to owners_path
+  end
+
   private
 
   def owner_params
