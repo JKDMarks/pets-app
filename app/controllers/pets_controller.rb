@@ -5,9 +5,17 @@ class PetsController < ApplicationController
   end
 
   def update
+    @owners = Owner.all
     @pet = Pet.find(params[:id])
-    @pet.update(pet_params)
-    redirect_to @pet
+    @pet.assign_attributes(pet_params)
+    if @pet.valid?
+      @pet.save
+      flash[:notice] = "Pet successfully edited"
+      redirect_to @pet
+    else
+      flash[:notice] = @pet.errors.full_messages
+      render :edit
+    end
   end
 
   def index
@@ -20,8 +28,16 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.create(pet_params)
-    redirect_to @pet
+    @owners = Owner.all
+    @pet = Pet.new(pet_params)
+    if @pet.valid?
+      @pet.save
+      flash[:notice] = "Pet successfully created"
+      redirect_to @pet
+    else
+      flash[:notice] = @pet.errors.full_messages
+      render :new
+    end
   end
 
   def show

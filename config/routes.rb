@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete 'pets/:id', to: 'pets#destroy'
 
   #### owners routes
+  get 'owners/two_or_more', to: "owners#two_or_more"
   get 'owners/:id/edit', to: 'owners#edit'
   get 'owners', to: 'owners#index'
   get 'owners/new', to: 'owners#new'

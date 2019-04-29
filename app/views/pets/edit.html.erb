@@ -1,3 +1,5 @@
+<%= flash[:notice] if flash[:notice] %>
+
 <h1>Updating <%= @pet.name %></h1>
 <%= form_for @pet do |f|%>
   <p><%= f.label "name" %>

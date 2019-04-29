@@ -1,6 +1,8 @@
+<%= flash[:notice] if flash[:notice] %>
+
 <h1><%= @pet.name %></h1>
 
 <p>Species: <%= @pet.species %></p>
-<p>Owner: <%= @pet.owner.first_name %></p>
+<p>Owner: <%= link_to @pet.owner.first_name, @pet.owner %></p>
 
 <%= button_to "Delete Pet", @pet, method: :delete%>

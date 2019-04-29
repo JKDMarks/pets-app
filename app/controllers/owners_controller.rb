@@ -47,6 +47,10 @@ class OwnersController < ApplicationController
     redirect_to owners_path
   end
 
+  def two_or_more
+    @owners_two_or_more_pets = Owner.owners_two_or_more_pets
+  end
+
   private
 
   def owner_params
